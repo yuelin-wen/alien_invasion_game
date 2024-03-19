@@ -1,0 +1,1 @@
+print("Please go to alien_invasion dir, and run 'python3 alien_invasion.py' to start game ")
