@@ -2,6 +2,7 @@ import sys
 import pygame
 from ship import Ship
 from settings import Settings
+from bullet import Bullet
 
 
 class AlienInvasion:
@@ -20,12 +21,15 @@ class AlienInvasion:
         pygame.display.set_caption("Alien Invasion")
 
         self.ship = Ship(self)  # self points to the instance of AlienInvasion
+        self.bullets = pygame.sprite.Group()  # use sprite.Group() to manage all valid bullets at same time
 
     def run_game(self):
         # main game start
         while True:  # listen mouse keyboard event
             self._check_events()
             self.ship.update()
+            self.bullets.update()
+            self._update_bullets()
             self._update_screen()
             self.clock.tick(60)  # use game frame from pygame.time.Clock() set it to 60
 
@@ -44,6 +48,8 @@ class AlienInvasion:
     def _update_screen(self):
         # reset background color every flip
         self.screen.fill(self.settings.bg_color)
+        for bullet in self.bullets.sprites():  # bullets.sprites() 会返回一个列表，包含Bullets 编组所有sprites
+            bullet.draw_bullet()
         self.ship.blitme()
         # flip screen every sec
         pygame.display.flip()
@@ -55,6 +61,8 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             # right key event
             self.ship.moving_left = True
+        elif event.key == pygame.K_SPACE:
+            self._fire_bullet()
         elif event.key == pygame.K_q:
             sys.exit()
 
@@ -63,6 +71,17 @@ class AlienInvasion:
             self.ship.moving_right = False
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
+
+    def _fire_bullet(self):
+        new_bullet = Bullet(self)
+        self.bullets.add(new_bullet)
+
+    def _update_bullets(self):
+        # delete disappear bullets on the screen
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
+        print(len(self.bullets))
 
 
 # if 代码块，仅当运行该文件时，程序代码才会执行，创建alienInvasion
