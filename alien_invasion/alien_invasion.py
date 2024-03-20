@@ -31,7 +31,7 @@ class AlienInvasion:
 
     def _check_events(self):
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT:  # 当玩家点击窗口x，关闭游戏
                 sys.exit()
             # detect keydown event
             elif event.type == pygame.KEYDOWN:
@@ -65,6 +65,7 @@ class AlienInvasion:
             self.ship.moving_left = False
 
 
+# if 代码块，仅当运行该文件时，程序代码才会执行，创建alienInvasion
 if __name__ == '__main__':
     ai = AlienInvasion()
     ai.run_game()
