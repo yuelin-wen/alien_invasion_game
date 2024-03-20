@@ -81,7 +81,6 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom <= 0:
                 self.bullets.remove(bullet)
-        print(len(self.bullets))
 
 
 # if 代码块，仅当运行该文件时，程序代码才会执行，创建alienInvasion

@@ -10,12 +10,13 @@ class Ship:
 
         # load ship image
         self.image = pygame.image.load('images/space_ship.png')
+        self.image = pygame.transform.scale(self.image,(50,50))
         self.rect = self.image.get_rect()
 
         # new ship in bottom screen
         self.rect.midbottom = self.screen_rect.midbottom
 
-        # store rect.x loat into x
+        # store rect.x load into x
         self.x = float(self.rect.x)
 
         # ship not move when start
