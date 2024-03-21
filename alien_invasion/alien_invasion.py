@@ -7,6 +7,7 @@ from settings import Settings
 from bullet import Bullet
 from alien import Alien
 from game_stats import GameStats
+from button import Button
 
 
 class AlienInvasion:
@@ -32,7 +33,9 @@ class AlienInvasion:
 
         self._create_fleet()
 
-        self.game_active = True
+        self.game_active = False
+
+        self.play_button = Button(self, "Play")
 
     def run_game(self):
         # main game start
@@ -51,6 +54,9 @@ class AlienInvasion:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:  # 当玩家点击窗口x，关闭游戏
                 sys.exit()
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = pygame.mouse.get_pos()  # 因为我们只想玩家点击play button时才开始，所以mouse.get_pos() 返回一个tuple坐标给mouse_pos
+                self._check_play_button(mouse_pos)
             # detect keydown event
             elif event.type == pygame.KEYDOWN:
                 self._check_keydown_events(event)
@@ -66,6 +72,11 @@ class AlienInvasion:
             bullet.draw_bullet()
         self.ship.blitme()
         self.aliens.draw(self.screen)
+
+        # only display play button when not active
+        if not self.game_active:
+            self.play_button.draw_button()
+
         # flip screen every sec
         pygame.display.flip()
 
@@ -163,12 +174,26 @@ class AlienInvasion:
             sleep(0.5)
         else:
             self.game_active = False
+            pygame.mouse.set_visible(True)
 
     def _check_aliens_bottom(self):
         for alien in self.aliens.sprites():
             if alien.rect.bottom >= self.settings.screen_height:
                 self._ship_hit()
                 break
+
+    def _check_play_button(self, mouse_pos):
+        button_clicked = self.play_button.rect.collidepoint(mouse_pos)
+        if button_clicked and not self.game_active:
+            pygame.mouse.set_visible(False)
+            self.stats.reset_stats()
+            self.game_active = True
+
+            self.bullets.empty()
+            self.aliens.empty()
+
+            self._create_fleet()
+            self.ship.center_ship()
 
 
 # if 代码块，仅当运行该文件时，程序代码才会执行，创建alienInvasion
