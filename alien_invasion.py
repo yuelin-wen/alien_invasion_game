@@ -10,6 +10,7 @@ from game_stats import GameStats
 from button import Button
 from scoreboard import Scoreboard
 
+
 class AlienInvasion:
     def __init__(self):
         pygame.init()
@@ -211,9 +212,3 @@ class AlienInvasion:
 
             self._create_fleet()
             self.ship.center_ship()
-
-
-# if 代码块，仅当运行该文件时，程序代码才会执行，创建alienInvasion
-if __name__ == '__main__':
-    ai = AlienInvasion()
-    ai.run_game()

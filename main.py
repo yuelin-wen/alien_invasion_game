@@ -1,1 +1,6 @@
-print("Please go to alien_invasion dir, and run 'python3 alien_invasion.py' to start game ")
+from alien_invasion import AlienInvasion
+
+
+if __name__ == '__main__':
+    ai = AlienInvasion()
+    ai.run_game()

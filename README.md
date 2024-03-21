@@ -10,10 +10,7 @@ Install my-project with npm
   git clone https://github.com/yuelin-wen/alien_invasion_game.git
 ```
 ```bash
-  cd alien_invasion
-```
-```bash
-  python3 alien_invasion.py
+  python3 main.py
 ```
 ## Game Control
 
