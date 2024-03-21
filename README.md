@@ -4,8 +4,6 @@ Alien ship game created with pygame in python
 
 ## Installation
 
-Install my-project with npm
-
 ```bash
   git clone https://github.com/yuelin-wen/alien_invasion_game.git
 ```
