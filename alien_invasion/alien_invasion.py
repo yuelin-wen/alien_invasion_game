@@ -8,7 +8,7 @@ from bullet import Bullet
 from alien import Alien
 from game_stats import GameStats
 from button import Button
-
+from scoreboard import Scoreboard
 
 class AlienInvasion:
     def __init__(self):
@@ -36,6 +36,7 @@ class AlienInvasion:
         self.game_active = False
 
         self.play_button = Button(self, "Play")
+        self.sb = Scoreboard(self)
 
     def run_game(self):
         # main game start
@@ -72,6 +73,8 @@ class AlienInvasion:
             bullet.draw_bullet()
         self.ship.blitme()
         self.aliens.draw(self.screen)
+
+        self.sb.show_score()
 
         # only display play button when not active
         if not self.game_active:
@@ -156,10 +159,17 @@ class AlienInvasion:
         collisions = pygame.sprite.groupcollide(self.bullets, self.aliens, True, True)  # groupcollide()
         # 函数将一个编组中每个元素的rect与另一个编组中每个元素的rect进行比较
 
+        if collisions:
+            for aliens in collisions.values():
+                self.stats.score += self.settings.alien_points * len(aliens)
+            self.sb.prep_score()
+            self.sb.check_high_score()
+
         # create another fleet if all aliens are elimate
         if not self.aliens:
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
 
     def _ship_hit(self):
         if self.stats.ship_left > 0:
@@ -185,8 +195,10 @@ class AlienInvasion:
     def _check_play_button(self, mouse_pos):
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.game_active:
+            self.settings.initialize_dynamic_settings()
             pygame.mouse.set_visible(False)
             self.stats.reset_stats()
+            self.sb.prep_score()
             self.game_active = True
 
             self.bullets.empty()

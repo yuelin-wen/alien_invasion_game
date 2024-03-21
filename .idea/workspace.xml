@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27503b07-ce60-491c-8789-b0852d293037" name="Changes" comment="imporve game play">
-      <change afterPath="$PROJECT_DIR$/alien_invasion/button.py" afterDir="false" />
+    <list default="true" id="27503b07-ce60-491c-8789-b0852d293037" name="Changes" comment="add play button, and mouse invisible">
+      <change afterPath="$PROJECT_DIR$/alien_invasion/scoreboard.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/alien_invasion/alien_invasion.py" beforeDir="false" afterPath="$PROJECT_DIR$/alien_invasion/alien_invasion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alien_invasion/game_stats.py" beforeDir="false" afterPath="$PROJECT_DIR$/alien_invasion/game_stats.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alien_invasion/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/alien_invasion/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710967443221</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add play button, and mouse invisible">
+      <option name="closed" value="true" />
+      <created>1711026961254</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711026961254</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -184,6 +194,7 @@
     <MESSAGE value="add bullets control" />
     <MESSAGE value="aliens movement, bullet control update" />
     <MESSAGE value="imporve game play" />
-    <option name="LAST_COMMIT_MESSAGE" value="imporve game play" />
+    <MESSAGE value="add play button, and mouse invisible" />
+    <option name="LAST_COMMIT_MESSAGE" value="add play button, and mouse invisible" />
   </component>
 </project>
