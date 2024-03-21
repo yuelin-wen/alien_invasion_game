@@ -1,6 +1,6 @@
 # Alien Invasion Python Game
 
-This is a python game that i created follow python crash course.
+Alien ship game created with pygame in python
 
 ## Installation
 

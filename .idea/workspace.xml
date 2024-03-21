@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27503b07-ce60-491c-8789-b0852d293037" name="Changes" comment="add ship stats">
+    <list default="true" id="27503b07-ce60-491c-8789-b0852d293037" name="Changes" comment="update readme">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +29,9 @@
         <option name="url" value="https://github.com/yuelin-wen/alien_invasion_game.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
@@ -194,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711031938969</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="update readme">
+      <option name="closed" value="true" />
+      <created>1711032276428</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1711032276428</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -209,6 +221,7 @@
     <MESSAGE value="add play button, and mouse invisible" />
     <MESSAGE value="add highest score feature" />
     <MESSAGE value="add ship stats" />
-    <option name="LAST_COMMIT_MESSAGE" value="add ship stats" />
+    <MESSAGE value="update readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="update readme" />
   </component>
 </project>
